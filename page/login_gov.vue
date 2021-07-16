@@ -1,8 +1,25 @@
 <template>
     <div class="login_page fillcontain">
         <el-container>
-            <el-header>Header</el-header>
-            <el-main>Main
+            <el-header>
+                <el-row :gutter="20">
+                <el-col :span="6"><div class="grid-content bg-purple"><template>
+                    <el-select v-model="value" placeholder="请选择">
+                        <el-option
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value">
+                        </el-option>
+                    </el-select>
+                </template>
+                </div></el-col>
+                <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+                <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+                <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+            </el-row>
+            </el-header>
+            <el-main>
         <transition name="form-fade" mode="in-out">
             <section class="form_contianer" v-show="showLogin">
                 <div class="manage_tip" style="opacity: initial">
@@ -150,5 +167,16 @@ export default {
 .grid-content {
     border-radius: 4px;
     min-height: 36px;
+}
+.el-row {
+    margin-bottom: 20px;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
 }
 </style>
